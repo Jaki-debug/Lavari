@@ -1,0 +1,52 @@
+{% block content %}
+    <style>
+        /* Styles pour améliorer l'apparence de la liste des produits */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #af1515; /* Couleur de fond de la page */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #f8ecec; /* Couleur du titre h2 */
+        }
+
+        .product-list {
+            list-style: none;
+            padding: 0;
+            background-color: rgb(199, 206, 243);
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(22, 21, 21, 0.1);
+        }
+
+        .product-item {
+            border-bottom: 1px solid #3b2a2a;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-item strong {
+            font-size: 1.2em;
+        }
+
+        /* Ajoutez d'autres styles selon vos préférences */
+    </style>
+
+    <h1 style="text-align: center;">Liste des Produits</h1>
+
+    {% if products %}
+        <ul class="product-list">
+            {% for product in products %}
+                <li class="product-item">
+                    <strong>{{ product.name }}</strong> - {{ product.price }}$
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="text-align: center;">Aucun produit n'est disponible pour le moment.</p>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,12 @@
+{% block content %}
+<h2>Supprimer la catégorie "{{ categorieaSupprimer.name }}"</h2>
+
+<p>Confirmez-vous la suppression de cette catégorie ?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Oui, supprimer</button>
+</form>
+
+<a href="{% url 'listeDesCategory' %}">Annuler</a>
+{% endblock %}

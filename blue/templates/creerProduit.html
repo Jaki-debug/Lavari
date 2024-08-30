@@ -1,0 +1,60 @@
+{% block content %}
+<style>
+    /* Styles pour le formulaire de création de produit */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #ffffff;
+        color: #3c4221c2;
+    }
+
+    h3 {
+        color: #d5fdc2;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #deecde;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #07702f;
+        border-radius: 3px;
+    }
+
+    button {
+        background-color: #47a027;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+<h2>Créer un nouveau produit</h2>
+<form method="post" action="{% url 'produit' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Créer</button>
+</form>
+{% endblock %}

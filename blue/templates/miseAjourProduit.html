@@ -1,0 +1,78 @@
+{% block content %}
+<style>
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #b2dcf5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: #3498db;
+  }
+
+  .product-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  .return-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+  }
+
+  .return-link:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="container">
+  <h2>Mise à Jour du Produit</h2>
+
+  <form method="post" class="product-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Mettre à Jour</button>
+  </form>
+
+  <a class="return-link" href="{% url 'dashboard' %}">Retour au Tableau de Bord</a>
+</div>
+{% endblock %}

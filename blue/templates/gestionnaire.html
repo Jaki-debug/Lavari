@@ -1,0 +1,194 @@
+{% load static %}
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GESTIONNAIRE</title>
+    <!-- Inclure les liens vers Bootstrap (assurez-vous de les inclure dans votre projet) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<style>
+    body {
+        background-color: #f8f9fa;
+        margin-bottom: 60px;
+        /* Couleur de fond */
+    }
+
+    header {
+        background-color: #971133;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 60px;
+
+    }
+
+    .card {
+        margin-top: 20px;
+
+    }
+
+    ul.list-group {
+        padding: 0;
+    }
+
+    ul.list-group-item {
+        border: none;
+        border-bottom: 1px solid #ccc;
+    }
+    footer { margin-bottom: 60px;
+    }
+</style>
+
+
+<body>
+
+
+    <header>
+        <h1>{% block header %} GESTIONNAIRE {% endblock %}</h1>
+
+        {% include 'navbar.html' %}
+
+    </header>
+
+    <!-- Utiliser la classe 'card' de Bootstrap pour styliser les liens -->
+
+
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: rgb(34, 122, 96); color: white;">
+                <div class="card-body">
+                    <h5 class="card-title">Créer une catégorie </h5>
+                    <p class="card-text">Créez de nouvelles catégories pour organiser vos produits.</p>
+                       <a href="{% url 'creationdeCategory' %}" class="btn btn-primary">Créer
+                            </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" style="background-color: rgb(34, 122, 96); color: white;">
+                    <h5 class="card-title">Création de produit </h5>
+                    <p class="card-text">Vous pouvez créer tous vos produits à cet endroit.</p>
+                    <a href="{% url 'produit' %}" class="btn btn-primary">Créer </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body" style="background-color: rgb(34, 122, 96); color: white;">
+                    <h5 class="card-title">Liste des produits </h5>
+                    <p class="card-text">Visualisez la liste de tous vos produits.</p>
+                    <a href="{% url 'listeDesProduit' %}" class="btn btn-primary">Afficher </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: rgb(34, 122, 96); color: white;">
+                <div class="card-body">
+                    <h5 class="card-title">Modifier un produit </h5>
+                    <p class="card-text">Effectuez des mises à jour sur vos produits existants.</p>
+                    <a href="{% url 'listedesProduitmiseajour' %}" class="btn btn-primary">Modifier </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: rgb(34, 122, 96); color: white;">
+                <div class="card-body">
+                    <h5 class="card-title">Lister les catégories </h5>
+                    <p class="card-text">Affichez la liste de toutes les catégories.</p>     
+                    <a href="{% url 'listeDesCategory' %}" class="btn btn-primary">Afficher </a></li>
+                        <!-- Ajoutez d'autres liens de menu ici -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: rgb(34, 122, 96); color: white;">
+                <div class="card-body">
+                    <h5 class="card-title">Supprimer une catégorie </h5>
+                    <p class="card-text">Supprimez vos catégories existantes.</p>
+                    <a href="{% url 'listedeCategorieasupprimer' %}" class="btn btn-primary">Supprimer </a></li>
+                        <!-- Ajoutez d'autres liens de menu ici -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: rgb(34, 122, 96); color: white;">
+                <div class="card-body">
+                    <h5 class="card-title">Supprimer un produit </h5>
+                    <p class="card-text">Supprimez vos produits existants.</p>
+                    <a href="{% url 'listeDeProduitaSupprimer' %}" class="btn btn-primary">Supprimer </a></li>
+                        <!-- Ajoutez d'autres liens de menu ici -->
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+        <div class="card" style="width: 18rem; background-color: rgb(15, 199, 223); color: white;">
+            <div class="card-body">
+                <h5 class="card-title">Visualiser les transactions</h5>
+                <p class="card-text">Visualisez les transactions effectuées.</p>
+                <a href="{% url 'daily_transaction_chart' %}" class="btn btn-primary">Visualiser</a>
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+    
+   
+
+
+
+
+
+
+
+
+
+
+    <!-- Résultats de la recherche -->
+    {% if search_results %}
+    <h2>Résultats de la recherche</h2>
+    <ul>
+        {% for result in search_results %}
+        <li>{{ result.name }} - {{ result.price }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <!-- Inclure le script Bootstrap JS (assurez-vous de l'inclure dans votre projet) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+
+
+
+</html>

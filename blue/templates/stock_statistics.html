@@ -1,0 +1,17 @@
+<!-- stock_statistics.html -->
+
+<h2>Statistiques des Stocks</h2>
+<table>
+    <tr>
+        <th>Produit</th>
+        <th>Quantité en stock</th>
+        <th>Disponibilité</th>
+    </tr>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{% if product.available %}Disponible{% else %}Rupture de stock{% endif %}</td>
+        </tr>
+    {% endfor %}
+</table>

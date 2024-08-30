@@ -1,0 +1,9 @@
+<!-- Résultats de la recherche -->
+{% if search_results %}
+<h2>Résultats de la recherche</h2>
+<ul>
+    {% for result in search_results %}
+    <li>{{ result.name }} - {{ result.price }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

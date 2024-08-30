@@ -1,0 +1,11 @@
+# Utiliser LF pour les fichiers Python
+*.py text eol=lf
+
+# Traiter les fichiers JPEG comme binaires
+*.jpg binary
+
+# Utiliser un diff spécifique pour les fichiers Markdown
+*.md diff=markdown
+
+# Normaliser toutes les fins de ligne pour les fichiers texte
+* text=auto

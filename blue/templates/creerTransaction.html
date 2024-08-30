@@ -1,0 +1,63 @@
+<!-- Dans votre template -->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Effectuer une Transaction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Couleur de fond de la page */
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333; /* Couleur du titre h2 */
+        }
+
+        form {
+            background-color: #fff; /* Couleur de fond du formulaire */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-grande {
+            width: 500px;
+            height: auto;
+            border: 2px solid #333; /* Couleur de la bordure de l'image */
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4caf50; /* Couleur de fond du bouton */
+            color: white; /* Couleur du texte du bouton */
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Couleur de fond du bouton au survol */
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Créer une  Transaction T-money / Flooz</h1>
+
+    <form method="post" action="{% url 'creationdetransaction' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Effectuer</button>
+        <img src="{% static 'mn.jpeg' %}" alt="T-money" class="image-grande">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{% block content %}
+<h2>Confirmer la suppression de {{ product }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <p> cette operation est irrevertible Êtes-vous réelement sûr de vouloir supprimer "{{ product }}"? </p>
+    <button type="submit">Confirmer la suppression</button>
+</form>
+
+<a href="{% url 'listeDesProduit'%}">Annuler</a>
+{% endblock %}

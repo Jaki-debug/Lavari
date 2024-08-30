@@ -1,0 +1,9 @@
+{% block content %}
+
+<h3>le nouveau produit vient d'etre creer avec succes</h3>
+<p>Nom du produit:{{product.name}}</p>
+<p>categorie du produit:{{product.categorie}}</p>
+<p>prix:{{product.price}} </p>
+<p>Disponible : {% if object.available %} Oui {% else %} Non {% endif %}</p>
+
+{% endblock %}

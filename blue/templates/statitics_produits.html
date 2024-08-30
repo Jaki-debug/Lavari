@@ -1,0 +1,24 @@
+<!-- templates/visualiser_produits.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualiser les Produits</title>
+</head>
+<body>
+    <h1>Produits Vendus</h1>
+    <ul>
+        {% for produit in produits_vendus %}
+            <li>{{ produit.product }} - {{ produit.quantity_product }} vendus</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Produits Non Vendus</h1>
+    <ul>
+        {% for produit in produits_non_vendus %}
+            <li>{{ produit.name }} - Non vendu</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

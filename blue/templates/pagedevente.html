@@ -1,0 +1,133 @@
+{% load static %}
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PAGE DE VENTE</title>
+    <!-- Inclure les liens vers Bootstrap (assurez-vous de les inclure dans votre projet) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<style>
+
+
+
+    body {
+        background-color: #146409;
+        /* Couleur de fond */
+    }
+
+    header {
+        background-color: #158b05e0;
+        color: rgb(247, 243, 243);
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 120px;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+   
+
+  
+
+   
+</style>
+</head>
+
+<body>
+
+
+    <header>
+        <h1>{% block header %} PAGE DE VENTE {% endblock %}</h1>
+        {% include 'navbar.html' %}
+
+    </header>
+
+    <!-- Utiliser la classe 'card' de Bootstrap pour styliser les liens -->
+
+    
+    
+        
+        
+        <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: #1f5f61">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #f1e4e4;">Effectuer une Transaction </h5>
+                    <p class="card-text" style="color: #f1e4e4;">ininitier une nouvel transaction</p>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'creationdetransaction' %}" class="btn btn-primary" style="color: #000000;">Effectuer </a></li>
+                        <img src="{% static 'mn.jpeg' %}" alt="">
+                        <!-- Ajoutez d'autres liens de menu ici -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: #1f5f61;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #fdfdfd;">Créer une facture</h5>
+                    <p class="card-text" style="color: #f1e4e4;">Initier une nouvelle facture.</p>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'creationdefacture' %}" class="btn btn-primary" style="color: #000000;">Créer </a></li>
+                        <img src="{% static 'facture3.jpeg' %}" alt="">
+                        <!-- Ajoutez d'autres liens de menu ici -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: #1f5f61;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #f1e4e4;">Lister les produits</h5>
+                    <p class="card-text" style="color: #f1e4e4;">Visualisez la liste de tous vos produits.</p>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'listeDesProduit' %}" class="btn btn-primary" style="color: #000000;">Lister </a></li>
+                        <img src="{% static 'liste6.jpeg' %}" alt="">
+                        <!-- Ajoutez d'autres liens de menu ici -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem; background-color: #1f5f61;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #f1e4e4;">Lister les catégories</h5>
+                    <p class="card-text" style="color: #f1e4e4;">Affichez la liste de toutes les catégories.</p>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="{% url 'listeDesCategory' %}" class="btn btn-primary" style="color: #000000;">Lister </a></li>
+                        <img src="{% static 'liste6.jpeg' %}" alt="">
+                        <!-- Ajoutez d'autres liens de menu ici -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+
+        
+
+
+    <!-- Résultats de la recherche -->
+    {% if search_results %}
+    <h2>Résultats de la recherche</h2>
+    <ul>
+        {% for result in search_results %}
+        <li>{{ result.name }} - {{ result.price }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <!-- Inclure le script Bootstrap JS (assurez-vous de l'inclure dans votre projet) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Detail</title>
+</head>
+<body>
+    <h2>Transaction Detail</h2>
+    <p>ID: {{ transaction.id }}</p>
+    <p>Client: {{ transaction.client.name }}</p>
+    <p>Opérateur: {{ transaction.operator }}</p>
+    <p>Type d'opération: {{ transaction.operation_type }}</p>
+    <p>Téléphone du destinataire: {{ transaction.recipient_phone }}</p>
+    <p>Montant: {{ transaction.amount }} XOF</p>
+    <p>Horodatage: {{ transaction.timestamp }}</p>
+    <!-- Ajoutez d'autres détails de transaction selon vos besoins -->
+</body>
+</html>

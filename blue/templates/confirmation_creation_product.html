@@ -1,0 +1,25 @@
+<!-- confirmation_creation_product.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de création du produit</title>
+</head>
+<body>
+    <h1>Confirmation de création du produit</h1>
+    
+    <!-- Affichez les détails du produit créé -->
+    <p>Le produit a été créé avec succès :</p>
+    <ul>
+        <li><strong>Nom du produit :</strong> {{ product.nom }}</li>
+        <li><strong>Description :</strong> {{ product.description }}</li>
+        <!-- Ajoutez d'autres champs selon votre modèle Product -->
+    </ul>
+
+    <!-- Ajoutez des liens ou des boutons pour rediriger l'utilisateur -->
+    <a href="{% url 'liste_produits' %}">Retour à la liste des produits</a>
+</body>
+</html>
+

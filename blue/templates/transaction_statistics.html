@@ -1,0 +1,17 @@
+<!-- transaction_statistics.html -->
+
+<h2>Statistiques des Transactions</h2>
+<table>
+    <tr>
+        <th>Date de vente</th>
+        <th>Quantité vendue</th>
+        <th>Total des ventes</th>
+    </tr>
+    {% for sale in sales %}
+        <tr>
+            <td>{{ sale.sale_date }}</td>
+            <td>{{ sale.quantity_sold }}</td>
+            <td>{{ sale.total_price }}</td>
+        </tr>
+    {% endfor %}
+</table>

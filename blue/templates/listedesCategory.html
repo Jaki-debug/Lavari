@@ -1,0 +1,52 @@
+{% block content %}
+    <style>
+        /* Styles pour une apparence esthétique de la liste des catégories */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #221f1f;
+        }
+
+        h2 {
+            color: #030d16;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-item {
+            background-color: #a8d8ff;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 15px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .category-item:hover {
+            background-color: #d2d7db;
+        }
+
+        .category-item strong {
+            color: #02048b;
+            font-size: 1.2em;
+        }
+    </style>
+
+    <h2>Liste des Catégories</h2>
+
+    {% if categories %}
+        <ul class="category-list">
+            {% for category in categories %}
+                <li class="category-item">
+                    <strong>{{ category.name }}</strong>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune catégorie n'est disponible pour le moment.</p>
+    {% endif %}
+{% endblock %}

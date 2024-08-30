@@ -1,0 +1,11 @@
+<!-- list_factures.html -->
+
+
+{% block content %}
+    <h2>Liste des factures</h2>
+    <ul>
+        {% for facture in factures %}
+            <li>{{ facture.nom_client }} - {{ facture.date_facture }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

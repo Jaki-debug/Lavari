@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Votre Boutique{% endblock %}</title>
+    <!-- Ajoutez ici vos liens vers les fichiers CSS ou autres ressources communes -->
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="{% url 'product_list' %}">Liste de nos Produits</a></li>
+        <li><a href="{% url 'dashboard' %}">Tableau de Bord</a></li>
+        <!-- Ajoutez d'autres liens de navigation au besoin -->
+    </ul>
+</nav>
+
+{% block content %}
+<!-- L'emplacement où le contenu spécifique à chaque page sera inséré -->
+{% endblock %}
+
+<!-- Ajoutez ici vos scripts JavaScript ou autres ressources communes -->
+
+</body>
+</html>

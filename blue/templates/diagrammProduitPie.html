@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramme de Produit</title>
+    <!-- Inclure la bibliothèque Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclure jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Ajuster le style CSS si nécessaire -->
+    <style>
+        canvas {
+            max-width: 600px; /* Ajuster la largeur du graphique selon vos besoins */
+        }
+    </style>
+</head>
+<body>
+
+<div id="loadingMessage" style="display: none;">
+    <p>Chargement en cours...</p>
+</div>
+
+<!-- Ajouter des conteneurs pour les éléments HTML -->
+<div>
+    <h3>Total des Produits Vendus</h3>
+    <p id="totalProductsSold">Calculating...</p>
+</div>
+
+<div>
+    <h3>Produits Restants</h3>
+    <p id="remainingProducts">Calculating...</p>
+</div>
+
+<div>
+    <h3>Total des Ventes</h3>
+    <p id="totalSales">Calculating...</p>
+</div>
+
+<!-- Ajouter un conteneur pour le graphique en courbe -->
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    // Attendre que le document soit prêt
+    $(document).ready(function() {
+        // Afficher le message de chargement
+        $('#loadingMessage').show();
+
+        // Effectuer la requête AJAX pour récupérer les données
+        $.ajax({
+            url: '/diagrammeProduit/',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Cacher le message de chargement une fois les données récupérées
+                $('#loadingMessage').hide();
+
+                // Mettre à jour les éléments HTML avec les données réelles
+                $('#totalProductsSold').text(data.total_products_sold);
+                $('#remainingProducts').text(data.remaining_products);
+                $('#totalSales').text(data.total_sales);
+
+                // Créer un graphique en courbe avec Chart.js
+                createChart(data);
+            },
+            error: function(error) {
+                console.log('Erreur lors de la récupération des données du diagramme de produit :', error);
+                // Gérer l'erreur, par exemple, afficher un message d'erreur à l'utilisateur
+            }
+        });
+
+        // Fonction pour créer un graphique en courbe avec Chart.js
+        function createChart(data) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line', // Type de graphique (ligne pour une courbe)
+                data: {
+                    labels: ['Total des Produits Vendus', 'Produits Restants', 'Total des Ventes'],
+                    datasets: [{
+                        label: 'Valeurs',
+                        data: [
+                            data.total_products_sold,
+                            data.remaining_products,
+                            data.total_sales
+                        ],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Couleur de fond
+                        borderColor: 'rgba(75, 192, 192, 1)', // Couleur de la ligne
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        } // Ajouter cette accolade fermante
+    });
+</script>
+
+</body>
+</html>

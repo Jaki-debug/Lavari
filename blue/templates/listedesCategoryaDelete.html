@@ -1,0 +1,23 @@
+<!-- listedesCategoryaDelete.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Mettez à jour les balises meta, title, etc. selon vos besoins -->
+</head>
+
+<body>
+    <h1>Categories à Supprimer</h1>
+
+    <ul>
+        {% for category in categories %}
+            <li>
+                {{ category.name }} - {{ category.description }}
+                <a href="{% url 'suspressiondeCategorie' pk=category.pk %}">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

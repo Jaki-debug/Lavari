@@ -1,0 +1,17 @@
+<!-- liste_factures.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Factures</title>
+</head>
+<body>
+    <h1>Liste des Factures</h1>
+    <ul>
+        {% for facture in factures %}
+            <li>{{ facture.nom_client }} - {{ facture.date_facture }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

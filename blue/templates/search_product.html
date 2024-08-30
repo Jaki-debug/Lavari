@@ -1,0 +1,7 @@
+<!-- search_product.html -->
+
+<h2>Rechercher un article</h2>
+<form method="get" action="{% url 'search_product' %}">
+    {{ form.as_p }}
+    <button type="submit">Recherche</button>
+</form>
